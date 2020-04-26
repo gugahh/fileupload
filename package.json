@@ -1,0 +1,18 @@
+{
+  "name": "fileupload",
+  "version": "1.0.0",
+  "description": "Faz upload de arquivos para pasta local, e serve os arquivos via get, automaticamente.",
+  "main": "fileupload.js",
+  "author": "Gustavo Santos - gustavo.santos@mprj.mp.br",
+  "license": "ISC",
+  "scripts": {
+    "servep": "fileupload.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security"
+  },
+  "devDependencies": {}
+}
