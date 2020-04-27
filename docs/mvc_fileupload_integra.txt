@@ -1,0 +1,49 @@
+MVC File Uploader Integra
+==========================
+
+Problemas encontrados ("Dor"):
+--------------------------------
+
+Sistemas (ex: Hotsite Integra) abrigam grandes arquivos
+estáticos que tem que ser servidos (vídeos; instalador do assinador, etc); Estes passam a fazer parte do build.
+Isso gera os seguintes problemas:
+    * Aumenta tamanho do build e o tempo do deploy
+    * Toma espaço no VCS
+    * Pode eventualmente causar timeout no build.
+
+Solução sugerida:
+----------------------
+
+- Um site (ou aplicação) que permitisse baixar tais arquivos diretamente via HTTP, armazenando os arquivos a ser servidos no Filesystem (e não no VCS) - ex: Nginx, Apache Server;
+- Os usuários poderiam possuir uma forma de subir novos arquivos, sem qualquer intermediação da GO, como, por exemplo, FTP (o que é desencorajado pela GO);
+- Poderia haver uma interface administrativa para os usuários autorizados fazerem upload de seus arquivos diretamente, via browser.
+- Essa solução deveria ser:
+    * Performática, ao servir os arquivos hospedados;
+    * Servir qualquer tipo de arquivo, SEM autenticação
+      (material sensível deve ser hospedado de outra forma);
+    * De simples manutenção (poucos features; não é o CORE dos Integras)
+    * Segura (sem fragilidades importantes conhecidas)
+    
+
+Features já planejadas (MVP mesmo):
+-------------------------
+1. Fazer Upload de Arquivos (qq tipo) via interface HTTP <OK>
+2. Servir os arquivos diretamente via HTTP <OK>
+3. Parâmetro para diretório para arquivamento (para dockerizar --> Volume) (não implementado ainda)
+
+
+Features Candidatas na versão 1.0 (discutir):
+----------------------------------
+4. Tratar nome de arquivos ilegais (espaço, caracteres especiais)
+5. Tratar colisão de nomes de arquivos (arquivo repetido)
+6. Tratar sub-pastas (sugestão: Combo com opções predefinidas)
+7. Listagem de arquivos já hospedados
+8. Opção de Excluir arquivos (com confirmação)
+9. Tela de login simplificada (login / senha fixos) (podem ser params na inicialização) - ex: admin do roteador -> requer cookies
+10. Mensagem tratada para colisão de nomes
+11. Estilos Css com Bootstrap (o mínimo)
+
+Features Candidatas na versão 2.0 (discutir):
+--------------------------------------
+12. Owner de arquivo (Requer alguma integração LDAP)
+13. Criação / Exclusão de Sub-pastas por parte do usuário
