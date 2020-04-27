@@ -2,7 +2,6 @@ var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
 var express = require('express');
-// const FILE_UPLOAD_PATH = '/home/gugahh/Projetos/Node/FileUpload/arquivos/'; 
 const FILE_UPLOAD_PATH = './arquivos/'; 
 
 const FILE_UPLOAD_PORT = 9000;
