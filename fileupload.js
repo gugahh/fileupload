@@ -2,10 +2,26 @@ var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
 var express = require('express');
-const FILE_UPLOAD_PATH = '/home/gugahh/Projetos/Node/FileUpload/arquivos/'; 
+// const FILE_UPLOAD_PATH = '/home/gugahh/Projetos/Node/FileUpload/arquivos/'; 
+const FILE_UPLOAD_PATH = './arquivos/'; 
 
 const FILE_UPLOAD_PORT = 9000;
 const FILE_DOWNLOAD_PORT = 8000;
+
+console.log(">> Iniciando app fileupload. ")
+console.log("\tAcesse localhost:9000/ para a página de envio de arquivos;");
+console.log("\tAcesse localhost:8000/arquivos/{nome do arquivo} para baixa-los.");
+
+// Cria a pasta "arquivos", caso nao exista
+// TODO: Na versao final, usar uma pasta / repositorio externo.
+try {
+  if (!fs.existsSync(FILE_UPLOAD_PATH)) {
+    console.log("Pasta arquivos nao existe. Criando-a.");
+    fs.mkdirSync(FILE_UPLOAD_PATH);
+  }
+} catch (err) {
+  console.error(err);
+}
 
 // Gerencia o Download (serviço de arquivos) via http
 var app = express();
@@ -23,7 +39,8 @@ http.createServer(function (req, res) {
         //TODO: tratar erro de arquivo repetido
         //TODO: Permitir criar subdiretorio (?)
         if (err) throw err;
-        res.write('Arquivo Recebido com sucesso!');
+        console.log('Arquivo Recebido com sucesso: ' + files.filetoupload.name);
+        res.write('Arquivo Recebido com sucesso: ' + files.filetoupload.name);
         res.end();
       });
  });
