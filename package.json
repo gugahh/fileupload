@@ -5,9 +5,6 @@
   "main": "fileupload.js",
   "author": "Gustavo Santos - gustavo.santos@mprj.mp.br",
   "license": "ISC",
-  "scripts": {
-    "servep": "fileupload.js"
-  },
   "dependencies": {
     "express": "^4.17.1",
     "formidable": "^1.2.2",
