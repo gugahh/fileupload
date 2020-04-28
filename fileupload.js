@@ -2,14 +2,17 @@ var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
 var express = require('express');
-const FILE_UPLOAD_PATH = './arquivos/'; 
 
+const autenticacao = require('./autenticacao');
+
+const FILE_UPLOAD_PATH = './arquivos/'; 
 const FILE_UPLOAD_PORT = 9000;
 const FILE_DOWNLOAD_PORT = 8000;
 
 console.log(">> Iniciando app fileupload. ")
 console.log("\tAcesse localhost:9000/ para a página de envio de arquivos;");
 console.log("\tAcesse localhost:8000/arquivos/{nome do arquivo} para baixa-los.");
+console.log("Valor de Foo:" + autenticacao.foo());
 
 // Cria a pasta "arquivos", caso nao exista
 // TODO: Na versao final, usar uma pasta / repositorio externo.
