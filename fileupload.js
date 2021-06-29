@@ -7,7 +7,7 @@ const FILE_UPLOAD_PATH = './arquivos/';
 const FILE_UPLOAD_PORT = 9000;
 const FILE_DOWNLOAD_PORT = 8000;
 
-console.log(">> Iniciando app fileupload. ")
+console.log(">> Iniciando app fileupload. ");
 console.log("\tAcesse localhost:9000/ para a página de envio de arquivos;");
 console.log("\tAcesse localhost:8000/arquivos/{nome do arquivo} para baixa-los.");
 
