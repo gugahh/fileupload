@@ -11,7 +11,7 @@ console.log(">> Baixe seu arquivo em: http://"
     + get_local_ip()
     + ":"
     + FILE_DOWNLOAD_PORT
-    + "/{nome_do_arquivo}"
+    + "/download/{nome_do_arquivo}"
     );
 
 app.get('/about', 
