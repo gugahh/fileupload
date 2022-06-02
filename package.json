@@ -10,7 +10,7 @@
     "formidable": "^1.2.2",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
-    "npm": "^7.19.0"
+    "npm": "^8.11.0"
   },
   "devDependencies": {}
 }
